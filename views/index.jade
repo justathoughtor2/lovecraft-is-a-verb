@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+  head
+    title Lovecraft is a verb...
+    link(rel="stylesheet", type="text/css", href="bower_components/font-awesome/css/font-awesome.css")
+    link(rel="stylesheet", type="text/css", href="public/stylesheets/style.css")
+  body.impress-not-supported
+    div.fallback-message
+      p Your browser <strong>doesn't support the features required</strong> by impress.js, so you are presented with a simplified version of Lovecraft is a verb...
+      p For the best experience, please use the latest <strong>Chrome</strong>, <strong>Safari</strong>, <strong>Firefox</strong>, or <strong>Edge</strong> browser.
+    div#impress
+      div#intro.step(data-x="-1000", data-y="-1500")
+        h1 Lovecraft is a verb...
+        div Yes, that's right. Lovecraft is a verb. But that is irrelevant. To the point: Who art thou to impinge upon the Master's work? No spaces in the name, please. Wouldn't want to offend the Great Old Ones, now would we?
+        form#name-entry
+          input#name(type="text", autocomplete="off")
+          button Enter...
+      div#welcome.step(data-x="0" data-y="-1500")
+        h2 Ah...
+        div#welcome-response
+      div#entry.step(data-x="0" data-y="0")
+        h2 Well, well...
+        div#entry-response
+    div.hint
+      p Press with prestidigitation the buttons of your choice to navigate the netherverse...
+    script(type="text/javascript", src="bower_components/jquery/dist/jquery.min.js")
+    script(type="text/javascript", src="bower_components/impress.js/js/impress.js")
+    script(type="text/javascript", src="bower_components/socket.io-client/socket.io.js")
+    script(type="text/javascript", src="public/init.js")
