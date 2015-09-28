@@ -1,8 +1,8 @@
 # lovecraft-is-a-verb
-JavaScript natural language processing game with the stories of HP Lovecraft!
+JavaScript text adventure game with the stories of HP Lovecraft!
 
 ## Prep your engines!
-This assumes you have Node.js, Bower, and MongoDB installed on your system. MongoDB is not yet actively used in the application, but it is still a requirement to run the app.
+This assumes you have Node.js and Bower installed on your system.
 
 Run the following commands in sequence:
 
