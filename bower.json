@@ -4,7 +4,7 @@
   "authors": [
     "justathoughtor2 <thoughthaven@gmail.com>"
   ],
-  "description": "Natural language processing fun with the writings of HP Lovecraft!",
+  "description": "JavaScript text adventure game based on the works of HP Lovecraft",
   "main": "app.js",
   "license": "All rights reserved",
   "ignore": [

@@ -2,8 +2,27 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var fs = require('fs');
 var jade = require('jade');
 var path = require('path');
+
+var cthulhuText = 'cthulhu.txt';
+var cthulhuParas;
+
+fs.readFile(cthulhuText, 'utf8', function(err, data) {
+  if(err) {
+    throw err;
+  }
+  cthulhuParas = data.split(/\n\n/);
+  
+  for(var i = 0; i < cthulhuParas.length; i++) {
+    fs.writeFile('cthulhu/cthulhuPara-' + i, cthulhuParas[i], function(err) {
+      if(err) {
+        throw err;
+      }
+    })
+  }
+});
 
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'jade');
