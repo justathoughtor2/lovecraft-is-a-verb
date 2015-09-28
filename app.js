@@ -11,7 +11,7 @@ app.set('view engine', 'jade');
 app.use('/bower_components', express.static(path.join(__dirname, '/bower_components')));
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
-server.listen(3000);
+server.listen(process.env.PORT);
 
 app.get('/', function(req, res) {
   res.render('index.jade');
