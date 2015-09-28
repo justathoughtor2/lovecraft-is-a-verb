@@ -16,7 +16,7 @@ fs.readFile(cthulhuText, 'utf8', function(err, data) {
   cthulhuParas = data.split(/\n\n/);
   
   for(var i = 0; i < cthulhuParas.length; i++) {
-    fs.writeFile('cthulhu/cthulhuPara-' + i, cthulhuParas[i], function(err) {
+    fs.writeFile('cthulhu/cthulhuPara-' + i + '.txt', cthulhuParas[i], function(err) {
       if(err) {
         throw err;
       }
@@ -45,7 +45,7 @@ io.on('connection', function(socket) {
   });
   socket.on('welcome entry', function(data) {
     var option = data.option;
-    var message = '';
+    var message;
     if(option == 0) {
       message = 'The descent into the creeping chaos of madness and despair begins anew...';
     }
@@ -54,5 +54,30 @@ io.on('connection', function(socket) {
     }
     
     socket.emit('entry response', { response: message });
-  })
+  });
+  for(var i = 0; i < cthulhuParas.length; i++) {
+    socket.on('paragraph ' + i, function(data) {
+      var option;
+      var correctOption;
+      if(data.option) {
+        option = data.option;
+        correctOption = data.correctOption;
+      }
+      
+      var message;
+      if(option == correctOption) {
+        fs.readFile('cthulhuPara-' + i + '.txt', 'utf8', function(err, data) {
+          if(err) {
+            throw err;
+          }
+          message = data;
+        });
+      }
+      else {
+        message = 'How unfortunate. You seem to have chosen poorly. It\'s a good thing Cthulhu likes his snacks quaking in fear. Farewell, oh proud disciple. Enjoy your journey unto the maw of despair.';
+      }
+      
+      socket.emit('paragraph response ' + i, { response: message });
+    });
+  }
 });

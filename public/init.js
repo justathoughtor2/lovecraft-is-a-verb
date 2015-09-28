@@ -1,3 +1,6 @@
+/* global impress */
+/* global io */
+
 $(document).ready(function() {
   var api = impress();
   api.init();
