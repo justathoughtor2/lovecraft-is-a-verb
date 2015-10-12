@@ -16,7 +16,7 @@ fs.readFile(cthulhuText, 'utf8', function(err, data) {
   cthulhuParas = data.split(/\n\n/);
   
   for(var i = 0; i < cthulhuParas.length; i++) {
-    fs.writeFile('cthulhu/cthulhuPara-' + i + '.txt', cthulhuParas[i], function(err) {
+    fs.writeFile('public/cthulhu/cthulhuPara-' + i + '.txt', cthulhuParas[i], function(err) {
       if(err) {
         throw err;
       }
@@ -53,7 +53,7 @@ io.on('connection', function(socket) {
       message = 'How disappointing. Cthulhu shall be most displeased.';
     }
     
-    socket.emit('entry response', { response: message });
+    socket.emit('entry response', { response: message, numFiles: cthulhuParas.length });
   });
   for(var i = 0; i < cthulhuParas.length; i++) {
     socket.on('paragraph ' + i, function(data) {
