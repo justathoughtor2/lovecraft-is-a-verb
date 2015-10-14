@@ -1,5 +1,5 @@
 doctype html
-html(lang="en")
+html(lang="en", ng-app="lovecraftApp")
   head
     title Lovecraft is a verb...
     link(rel="stylesheet", type="text/css", href="bower_components/font-awesome/css/font-awesome.css")
@@ -23,7 +23,9 @@ html(lang="en")
         div#entry-response
     div.hint
       p Press with prestidigitation the left and right arrow keys to navigate the netherverse... 
-    script(type="text/javascript", src="bower_components/jquery/dist/jquery.min.js")
+    script(type="text/javascript", srce="bower_components/angular/angular.min.js")
+    // script(type="text/javascript", src="bower_components/jquery/dist/jquery.min.js")
     script(type="text/javascript", src="bower_components/impress.js/js/impress.js")
     script(type="text/javascript", src="bower_components/socket.io-client/socket.io.js")
-    script(type="text/javascript", src="public/init.js")
+    script(type="text/javascript", src="public/controllers.js")
+    // script(type="text/javascript", src="public/init.js")
